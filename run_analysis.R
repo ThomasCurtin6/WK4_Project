@@ -27,13 +27,35 @@ zippy <-"HARDATA"
 download(source,zippy,mode="wb")
 unzip(zippy)
 
-#1A Load the activities 
+#1a Load the activities 
+#  I'm using mydir to build file path
 mydir<-"UCI HAR Dataset"
-activityNames<-read.table("UCI HAR Dataset/activity_labels.txt")
-activityNames
-#1b load the features
-featureNames<-read.table("UCI HAR Dataset/features.txt")
-featureNames
+dir(mydir)
 
+activityNames<-read.table(paste(mydir,"activity_labels.txt",sep="/"))
+     activityNames[,2]<-as.character(activityNames[,2])
+                      
+                                     
 
-#1B  Load the training and test data sets
+#1b load the features and get a list of the desired features (means & std dev)
+featureNames<-read.table(paste(mydir,"features.txt",sep="/"))
+     featureNames[,2]<-as.character(featureNames[,2])
+     desiredFeatures<-grep(".*mean.*|.*std.*",featureNames[,2])
+     desiredFeatures.names<-featureNames[desiredFeatures,2]
+#1c load the data for train
+typ="train"
+mf<-paste(mydir,typ,sep="/")
+#mf builds out the file path to the data subdirectory level (typ)
+
+     subject_train<-read.table(paste(mf,"subject_train.txt",sep="/"))
+     x_train<-read.table(paste(mf,"X_train.txt",sep="/"))
+     y_train<-read.table(paste(mf,"y_train.txt",sep="/"))
+
+#1d load the test
+typ="test"
+mf<-paste(mydir,typ,sep="/")
+
+     subject_test<-read.table(paste(mf,"subject_test.txt",sep="/"))
+     x_test<-read.table(paste(mf,"X_test.txt",sep="/"))
+     y_test<-read.table(paste(mf,"y_test.txt",sep="/"))                        
+                    
