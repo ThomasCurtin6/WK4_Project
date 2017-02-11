@@ -60,18 +60,116 @@ The code to produce this was:
 
 * **subjectID**     -The identifier for each participant/subject with values ranging from int 1-30
 * **activity**      -the english text description of the activity 
+
+-LAYING
+
+-SITTING
+
+-STANDING
+
+-WALKING
+
+-WALKING_DOWNSTAIRS
+
+-WALKING_UPSTAIRS
+
+
+* **variableName**  -the measurement variable summarized from the trial.  
+
+* **variableNames**
+Freq.Body.Acceleration..Magnitude.-mean.
+Freq.Body.Acceleration..Magnitude.-meanFreq.
+Freq.Body.Acceleration..Magnitude.-std.
+Freq.Body.Acceleration.Jerk-mean.-X
+Freq.Body.Acceleration.Jerk-mean.-Y
+Freq.Body.Acceleration.Jerk-mean.-Z
+Freq.Body.Acceleration.Jerk-meanFreq.-X
+Freq.Body.Acceleration.Jerk-meanFreq.-Y
+Freq.Body.Acceleration.Jerk-meanFreq.-Z
+Freq.Body.Acceleration.Jerk-std.-X
+Freq.Body.Acceleration.Jerk-std.-Y
+Freq.Body.Acceleration.Jerk-std.-Z
+Freq.Body.Acceleration.-mean.-X
+Freq.Body.Acceleration.-mean.-Y
+Freq.Body.Acceleration.-mean.-Z
+Freq.Body.Acceleration.-meanFreq.-X
+Freq.Body.Acceleration.-meanFreq.-Y
+Freq.Body.Acceleration.-meanFreq.-Z
+Freq.Body.Acceleration.-std.-X
+Freq.Body.Acceleration.-std.-Y
+Freq.Body.Acceleration.-std.-Z
+Freq.Body.Gyroscope-mean.-X
+Freq.Body.Gyroscope-mean.-Y
+Freq.Body.Gyroscope-mean.-Z
+Freq.Body.Gyroscope-meanFreq.-X
+Freq.Body.Gyroscope-meanFreq.-Y
+Freq.Body.Gyroscope-meanFreq.-Z
+Freq.Body.Gyroscope-std.-X
+Freq.Body.Gyroscope-std.-Y
+Freq.Body.Gyroscope-std.-Z
+Freq.BodyBody.Acceleration.Jerk.Magnitude.-mean.
+Freq.BodyBody.Acceleration.Jerk.Magnitude.-meanFreq.
+Freq.BodyBody.Acceleration.Jerk.Magnitude.-std.
+Freq.BodyBody.Gyroscope.Magnitude.-mean.
+Freq.BodyBody.Gyroscope.Magnitude.-meanFreq.
+Freq.BodyBody.Gyroscope.Magnitude.-std.
+Freq.BodyBody.GyroscopeJerk.Magnitude.-mean.
+Freq.BodyBody.GyroscopeJerk.Magnitude.-meanFreq.
+Freq.BodyBody.GyroscopeJerk.Magnitude.-std.
+Time.Body.Acceleration..Magnitude.-mean.
+Time.Body.Acceleration..Magnitude.-std.
+Time.Body.Acceleration.Jerk.Magnitude.-mean.
+Time.Body.Acceleration.Jerk.Magnitude.-std.
+Time.Body.Acceleration.Jerk-mean.-X
+Time.Body.Acceleration.Jerk-mean.-Y
+Time.Body.Acceleration.Jerk-mean.-Z
+Time.Body.Acceleration.Jerk-std.-X
+Time.Body.Acceleration.Jerk-std.-Y
+Time.Body.Acceleration.Jerk-std.-Z
+Time.Body.Acceleration.-mean.-X
+Time.Body.Acceleration.-mean.-Y
+Time.Body.Acceleration.-mean.-Z
+Time.Body.Acceleration.-std.-X
+Time.Body.Acceleration.-std.-Y
+Time.Body.Acceleration.-std.-Z
+Time.Body.Gyroscope.Magnitude.-mean.
+Time.Body.Gyroscope.Magnitude.-std.
+Time.Body.GyroscopeJerk.Magnitude.-mean.
+Time.Body.GyroscopeJerk.Magnitude.-std.
+Time.Body.GyroscopeJerk-mean.-X
+Time.Body.GyroscopeJerk-mean.-Y
+Time.Body.GyroscopeJerk-mean.-Z
+Time.Body.GyroscopeJerk-std.-X
+Time.Body.GyroscopeJerk-std.-Y
+Time.Body.GyroscopeJerk-std.-Z
+Time.Body.Gyroscope-mean.-X
+Time.Body.Gyroscope-mean.-Y
+Time.Body.Gyroscope-mean.-Z
+Time.Body.Gyroscope-std.-X
+Time.Body.Gyroscope-std.-Y
+Time.Body.Gyroscope-std.-Z
+Time.Gravity.Acceleration..Magnitude.-mean.
+Time.Gravity.Acceleration..Magnitude.-std.
+Time.Gravity.Acceleration.-mean.-X
+Time.Gravity.Acceleration.-mean.-Y
+Time.Gravity.Acceleration.-mean.-Z
+Time.Gravity.Acceleration.-std.-X
+Time.Gravity.Acceleration.-std.-Y
+Time.Gravity.Acceleration.-std.-Z
+
 * **avg_val**         -the mean of the value for each original measurement summarized at the subjectID and activity level
 
+###Sample Data
         
-
-subjectID                   activity            avg_val
----------------------    ------------------- ------------------   
-     1                   LAYING                -0.5629116
-     1                   SITTING               -0.5847260
-     1                   STANDING              -0.6042467
-     1                   WALKING               -0.1630823
-     1                   WALKING_DOWNSTAIRS    -0.1233816
-     1                   WALKING_UPSTAIRS      -0.3071040
+ subjectID    activity                        variableName    avg_val
+----------- -------------------  ------------------------- ------------------ 
+      <int>    <chr>                               <chr>       <dbl>
+         1   LAYING     Freq.Body.Acceleration.-mean.-X   -0.93909905
+         1   LAYING     Freq.Body.Acceleration.-mean.-Y   -0.86706521
+         1   LAYING     Freq.Body.Acceleration.-mean.-Z   -0.88266688
+         1   LAYING Freq.Body.Acceleration.-meanFreq.-X   -0.15879267
+         1   LAYING Freq.Body.Acceleration.-meanFreq.-Y    0.09753484
+         1   LAYING Freq.Body.Acceleration.-meanFreq.-Z    0.08943766
      
 ###Reading the tidy_data.txt file back into R
 
@@ -79,7 +177,7 @@ subjectID                   activity            avg_val
 
      *chk<-read.table(file="tidy_data.txt", header=TRUE)*
 
-This creates a simple data frame with 180 observations and three variables
+This creates a simple data frame with 14,220 observations and four variables
 
 
 

@@ -20,9 +20,10 @@ library(downloader)
 library(data.table)
 library(reshape2)
 library(curl)
-library(dplyr)
-library(tidyr)
 
+library(tidyr)
+library(qdap)
+library(dplyr)
 
 # 0.  Get the data
 source<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -105,10 +106,11 @@ mf<-paste(mydir,typ,sep="/")
      
 # work in progress
      
-     tidy_data <- gather(masData,variableName,Value,4:82) %>% 
-        group_by(subjectID,activity) %>% 
-           summarise(avg_val=mean(Value)) %>%          
-               write.table(file="tidy_data.txt", row.name=FALSE)
+tidy_data <-gather(masData,variableName,Value,4:82)
+    tidy_data[,c("subjectID","activity","variableName","Value")] %>%
+          group_by(subjectID,activity,variableName)              %>% 
+               summarise(avg_val=mean(Value))                     %>%
+                    write.table(file="tidy_data.txt", row.name=FALSE)
    
      
      
