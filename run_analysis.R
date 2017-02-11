@@ -110,7 +110,7 @@ tidy_data <-gather(masData,variableName,Value,4:82)
     tidy_data[,c("subjectID","activity","variableName","Value")] %>%
           group_by(subjectID,activity,variableName)              %>% 
                summarise(avg_val=mean(Value))                     %>%
-                    write.table(file="tidy_data.txt", row.name=FALSE)
+                    write.table(file="tidy_data.txt", row.name=FALSE)  
    
      
      
